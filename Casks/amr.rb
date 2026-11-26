@@ -1,6 +1,6 @@
 cask "amr" do
   version "3.0.0"
-  sha256 "f35fd1d51cb5d2987aebf123be16b4fa49b6290f97e66529383592a1141fb581"
+  sha256 "af74b66b649f77702642351fa1c148749188ae9f72e726837e8f4f28ebf5fbb9"
 
   url "https://github.com/1orgar/amr/releases/download/v#{version}/AppleMusicRemoteMac-Universal.dmg"
   name "Apple Music Remote"
