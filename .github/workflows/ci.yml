@@ -1,0 +1,24 @@
+name: Validate Casks
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  audit:
+    name: Homebrew Style & Livecheck
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check Cask Style & Livecheck
+        run: |
+          brew style Casks/amr.rb
+          TAP_DIR="$(brew --repository)/Library/Taps/1orgar/homebrew-tap"
+          rm -rf "$TAP_DIR"
+          mkdir -p "$(dirname "$TAP_DIR")"
+          ln -s "$GITHUB_WORKSPACE" "$TAP_DIR"
+          brew info --cask 1orgar/tap/amr
+          brew audit --cask 1orgar/tap/amr
+          brew livecheck --cask 1orgar/tap/amr
