@@ -19,6 +19,7 @@ jobs:
           rm -rf "$TAP_DIR"
           mkdir -p "$(dirname "$TAP_DIR")"
           ln -s "$GITHUB_WORKSPACE" "$TAP_DIR"
+          brew trust 1orgar/tap 2>/dev/null || true
           brew info --cask 1orgar/tap/amr
           brew audit --cask 1orgar/tap/amr
           brew livecheck --cask 1orgar/tap/amr

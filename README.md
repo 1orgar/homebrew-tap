@@ -8,6 +8,8 @@ Official [Homebrew](https://brew.sh) Cask tap for **[Apple Music Remote (AMR)](h
 ## Install
 
 ```bash
+brew tap 1orgar/tap
+brew trust 1orgar/tap 2>/dev/null || true
 brew install --cask 1orgar/tap/amr
 ```
 
