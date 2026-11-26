@@ -13,6 +13,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Check Cask Style & Livecheck
+        env:
+          HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           brew style Casks/amr.rb
           TAP_DIR="$(brew --repository)/Library/Taps/1orgar/homebrew-tap"
